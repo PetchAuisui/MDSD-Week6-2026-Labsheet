@@ -576,13 +576,40 @@ Future<Weather> fetchWeatherWithDio(String city) async {
 > ✅ **Checkpoint 5.2** เปรียบเทียบสั้น ๆ ระหว่าง `http` กับ `dio` อย่างน้อย 3 ประเด็น โดยอ้างอิงจากสิ่งที่สังเกตได้จริงตอนทดลองในขั้นตอนที่ 5.3 เช่น การแปลง JSON อัตโนมัติ, การกำหนด Query Parameters, และรูปแบบการจัดการ Exception (`DioException` เทียบกับการดักจับหลายชนิดแยกกันแบบ `http`)
 
 ```text
-บันทึกคำตอบที่นี่
+1. การแปลง JSON (Auto JSON Decoding):
+   - http: ต้อง import 'dart:convert' แล้วครอบ jsonDecode(response.body) เองทุกครั้ง
+   - dio: แปลง JSON เป็น Map/List ให้อัตโนมัติผ่าน response.data ไม่ต้องเขียน jsonDecode เอง
+
+2. การส่ง Query Parameters:
+   - http: ต้องต่อ URL string เองแบบมือ เช่น '$baseUrl?q=$city&appid=$apiKey' เสี่ยงต่อการลืม encode หรือ syntax หลุด
+   - dio: ส่งผ่าน parameter ชื่อ queryParameters: {'q': city, 'appid': apiKey} เป็น Map ได้โดยตรง สวยงามและอ่านง่ายกว่า
+
+3. การจัดการ Error / Exception:
+   - http: ต้องดักจับ Exception หลายชนิดแยกกัน (เช่น on TimeoutException, on ClientException, on SocketException)
+   - dio: ดักจับก้อนใหญ่ผ่าน `on DioException catch (e)` เพียงตัวเดียว แล้วเช็กเงื่อนไขผ่าน `e.type` เช่น connectionTimeout, badResponse, connectionError ทำให้โค้ดเป็นระเบียบกว่า
 ```
 >
 > ✅ **Checkpoint 5.3** แสดงโค้ดเงื่อนไข `DioExceptionType` เพิ่มเติมที่เขียนเองในขั้นตอนที่ 5.4 
 
 ```text
-บันทึกคำตอบที่นี่
+} on DioException catch (e) {
+  if (e.type == DioExceptionType.connectionTimeout) {
+    throw Exception('การเชื่อมต่อหมดเวลา กรุณาลองใหม่อีกครั้ง');
+  } else if (e.type == DioExceptionType.badResponse) {
+    // เซิร์ฟเวอร์ตอบกลับมาแล้วแต่ status code ผิดพลาด (เช่น 404 หรือ 500)
+    if (e.response?.statusCode == 404) {
+      throw Exception('ไม่พบข้อมูลเมือง "$city" กรุณาตรวจสอบชื่อเมือง');
+    }
+    throw Exception('เซิร์ฟเวอร์ตอบกลับผิดพลาด (${e.response?.statusCode})');
+  } else if (e.type == DioExceptionType.receiveTimeout) {
+    // เซิร์ฟเวอร์ตอบรับช้าเกินเวลา receiveTimeout ที่กำหนด
+    throw Exception('การรับส่งข้อมูลจากเซิร์ฟเวอร์หมดเวลา กรุณาลองใหม่อีกครั้ง');
+  } else if (e.type == DioExceptionType.connectionError) {
+    // กรณีไม่มีอินเทอร์เน็ต, สัญญาณหลุด หรือหาโดเมนไม่เจอ
+    throw Exception('ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้ กรุณาตรวจสอบสัญญาณเน็ต');
+  }
+  throw Exception('เกิดข้อผิดพลาด: ${e.message}');
+}
 ```
 ---
 
