@@ -1,4 +1,4 @@
-# ใบงานปฏิบัติบทที่ 6 API Integration & Networking ด้วย http Package
+<img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/a1ebc4b5-200b-48c0-8496-2f6e520be249" /># ใบงานปฏิบัติบทที่ 6 API Integration & Networking ด้วย http Package
 
 **วิชา** การพัฒนาซอฟต์แวร์สำหรับอุปกรณ์เคลื่อนที่ | **เครื่องมือ** Flutter, http package, Postman, Google AI Studio (Gemini API), OpenWeather API
 
@@ -182,7 +182,10 @@ void main() {
 รันไฟล์นี้แยกจากแอปหลัก — ใน VS Code เปิดไฟล์นี้แล้วกด **Run** ที่มุมขวาบน (หรือคลิกขวา > Run) หรือรันจาก terminal ด้วยคำสั่ง `dart run lib/test_weather_parse.dart` เพราะไฟล์นี้มี `main()` ของตัวเอง จึงรันแยกจากแอป Flutter หลักได้ทันทีโดยไม่ต้องเปิดโปรแกรมทั้งแอป
 
 > ✅ **Checkpoint 2.1** รันไฟล์ทดสอบข้างต้น สังเกตค่าทั้ง 4 ฟิลด์ที่ `print()` ออกมาใน Debug Console ว่าตรงกับ Response Body จริงจาก Postman หรือไม่ ถ่ายภาพหน้าจอ Debug Console ที่แสดงว่าค่าทั้ง 4 ฟิลด์ถูกต้องตรงกับ JSON จริง
-<img width="1470" height="923" alt="image" src="https://github.com/user-attachments/assets/8caea846-c33c-4e8f-9525-4270cca62338" />
+- POSTMAN
+<img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/70d070f6-4c7f-4701-bae1-39cfbf40c562" />
+- VSCode
+<img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/33575550-87e8-4629-91e4-6baeeb2e7cdc" />
 
 ### ขั้นตอนที่ 2.3 — 🧠 คิดเอง/ออกแบบเอง
 
