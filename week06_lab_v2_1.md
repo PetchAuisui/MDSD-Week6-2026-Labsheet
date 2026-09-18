@@ -486,13 +486,15 @@ GET https://fakestoreapi.com/products
 ไม่ว่าจะเลือกแบบไหน เป้าหมายคือต้องเห็น **ผลลัพธ์จริงจาก Fake Store API** ปรากฏขึ้นมา  ถ้ารันแล้วเจอ error หรือโค้ดจาก Gemini ผิดพลาด (เช่น import ขาด, ชื่อ field ไม่ตรงกับ JSON จริง) ให้จดบันทึกข้อความ error และวิธีแก้ไขไว้ในด้านล่าง
 
 ```text
-บันทึก error และการแก้ไขที่นี่
+- Error ที่พบ: โค้ดจาก Gemini ใส่ฟังก์ชันไว้ในคลาส `FakeStoreService` ทำให้เรียก `fetchAiProducts()` ตรงๆ ตามโจทย์ไม่ได้ (ขึ้น Undefined function)
+- วิธีแก้ไข: ย้ายฟังก์ชัน `fetchAiProducts()` และ `fetchAiProductById()` ออกมาเป็น top-level function นอกคลาส ทำให้เรียกใช้งานได้โดยตรง
+- การแปลงข้อมูล: ฟิลด์ราคา (`price`) มีการ cast ผ่าน `num` ก่อนเป็น `.toDouble()` เพื่อป้องกันแอปแครชเวลา API ส่งค่ามาเป็น int
+- ผลการทดสอบ: รันแล้วดึงข้อมูลสินค้าจาก Fake Store API ได้ครบทั้ง 20 รายการ Status 200 ปกติ ไม่พบ Runtime Error ครับ
 ```
 
 > ✅ **Checkpoint 4.2** ถ่ายภาพหน้าจอ Debug Console ที่แสดงผลลัพธ์จริงจากการเรียก `fetchAiProducts()` (เช่น รายการสินค้าที่ print ออกมา) 
-```text
-บันทึกรูปที่นี่
-```
+<img width="1470" height="920" alt="image" src="https://github.com/user-attachments/assets/0e0e4417-e4f6-492f-9048-3f464647233b" />
+
 
 ---
 
