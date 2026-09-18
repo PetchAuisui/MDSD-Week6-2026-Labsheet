@@ -410,7 +410,7 @@ ElevatedButton(
 จากนั้นรันแอป กดปุ่มนี้ แล้วดูผลลัพธ์ใน Debug Console (ปุ่มนี้เป็นแค่ปุ่มทดลองชั่วคราว ไม่ต้องมีการจัดการ Loading/Error ใด ๆ ต่างจากปุ่ม "ค้นหา" หลักของหน้า)
 
 > ✅ **Checkpoint 3.1** ถ่ายภาพหน้าจอ Debug Console ที่แสดง Status Code (ควรเป็น `201 Created`) พร้อม Response Body 
-<img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/9a9da320-49f7-4d1a-8398-10650ea8f586" />
+<img width="1465" height="922" alt="image" src="https://github.com/user-attachments/assets/7f5f5da9-cea2-418e-8411-2a3656351bd3" />
 
 
 ### ขั้นตอนที่ 3.2 — 🧠 คิดเอง/ออกแบบเอง
@@ -436,9 +436,8 @@ Future<void> updateDemoPost() async {
 
 > ✅ **Checkpoint 3.2** ถ่ายภาพหน้าจอ Debug Console ที่แสดง Status Code ของการเรียก PUT (ควรเป็น `200 OK`) 
 
-```text
-บันทึกรูปและคำตอบที่นี่
-```
+<img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/a210d06e-db58-462a-b7c2-4935580cd8b4" />
+
 ---
 
 ## ส่วนที่ 4: ใช้ AI ช่วย Generate โค้ด API Client
