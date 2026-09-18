@@ -436,7 +436,7 @@ Future<void> updateDemoPost() async {
 
 > ✅ **Checkpoint 3.2** ถ่ายภาพหน้าจอ Debug Console ที่แสดง Status Code ของการเรียก PUT (ควรเป็น `200 OK`) 
 
-<img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/a210d06e-db58-462a-b7c2-4935580cd8b4" />
+<img width="1470" height="923" alt="image" src="https://github.com/user-attachments/assets/e39137b0-0971-4f24-bf4f-e24424bb4ae5" />
 
 ---
 
