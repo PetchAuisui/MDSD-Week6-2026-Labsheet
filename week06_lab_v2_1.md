@@ -184,6 +184,7 @@ void main() {
 > ✅ **Checkpoint 2.1** รันไฟล์ทดสอบข้างต้น สังเกตค่าทั้ง 4 ฟิลด์ที่ `print()` ออกมาใน Debug Console ว่าตรงกับ Response Body จริงจาก Postman หรือไม่ ถ่ายภาพหน้าจอ Debug Console ที่แสดงว่าค่าทั้ง 4 ฟิลด์ถูกต้องตรงกับ JSON จริง
 - POSTMAN
 <img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/70d070f6-4c7f-4701-bae1-39cfbf40c562" />
+
 - VSCode
 <img width="1470" height="921" alt="image" src="https://github.com/user-attachments/assets/33575550-87e8-4629-91e4-6baeeb2e7cdc" />
 
@@ -234,9 +235,8 @@ class WeatherService {
 
 > ✅ **Checkpoint 2.2** บันทึกผลการตรวจสอบ `statusCode` อย่างน้อย 2 กรณี (สำเร็จ และ 404) ตามเกณฑ์ข้างต้น
 
-```text
-บันทึกรูปและคำตอบที่นี่
-```
+<img width="1470" height="923" alt="image" src="https://github.com/user-attachments/assets/2dd58e14-c167-4426-a1c7-512d87a865dd" />
+
 
 ### ขั้นตอนที่ 2.4 — 🧠 คิดเอง/ออกแบบเอง
 
